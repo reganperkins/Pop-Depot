@@ -8,7 +8,7 @@ end
 
 
 def start_trade
-  depot = Calculate_exchange.new(amount)
+  depot = Calculate_Exchange.new(amount)
   depot.buy_pop
 
   loop do 

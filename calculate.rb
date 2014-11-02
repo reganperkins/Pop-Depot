@@ -1,4 +1,4 @@
-class Calculate_exchange
+class Calculate_Exchange
 
   attr_accessor :total_bottles, :bottle_caps, :investment
   def initialize (investment)
