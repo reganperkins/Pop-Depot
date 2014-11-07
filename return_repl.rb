@@ -1,28 +1,22 @@
-require_relative 'calculate'
-
+require_relative 'bottle_depot'
+## require_relative 'calculate'
 
 def amount
-  puts 'How much would you like to invest?'
-  @investment = gets.chomp.to_i
+  puts '"How much would you like to spend on bottles today? e.g. 20 for $20"'
+  @investment = gets.to_i
 end
 
-
 def start_trade
-  depot = Calculate_Exchange.new(amount)
+  depot = BottleDepot.new(amount)
   depot.buy_pop
 
   loop do 
-    depot.trade_in_bottles
-    depot.trade_in_caps
-    break if depot.trading_in
+    depot.trade
+    break if depot.trading_in?
   end
-  depot.total
 
-  # while depot.trading_in
-  #   depot.trade_in_bottles
-  #   depot.trade_in_caps
-  # end
-  depot.total
+  depot.final_report
+  start_trade
 end
 
 start_trade 
